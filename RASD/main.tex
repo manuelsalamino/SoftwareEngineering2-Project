@@ -1,0 +1,56 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{import}
+\usepackage{listings}
+\usepackage[english]{babel}
+
+
+\begin{document}
+
+\begin{figure}[t]
+    \includegraphics[scale=0.8]{logo_polimi.png}
+    \centering
+\end{figure}
+
+\begin{titlepage}
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+    \center
+    \textsc{\LARGE POLITECNICO DI MILANO}\\[1.5cm]
+	
+	\textsc{\Large SOFTWARE ENGINEERING II}\\[0.5cm]
+	
+	\HRule\\[0.4cm]
+	    {\huge \textsc{SafeStreets - \\Requirements Analysis and Specification Document}}\\[0.4cm]
+	    Version 1.0
+    \HRule\\[1.5cm]
+	
+	\begin{minipage}{1\textwidth}
+		\begin{flushleft}
+			\large
+			\textit{Authors}\\
+			Iacopo \textsc{Marri}\\
+			Manuel \textsc{Salamino}\\
+			Steven Alexander \textsc{Salazar Molina}
+		\end{flushleft}
+	\end{minipage}
+	
+	\vfill\vfill\vfill % Position the date 3/4 down the remaining page
+	
+	{\large\today}
+	
+\end{titlepage}
+
+
+\newpage
+
+\tableofcontents
+
+\include{Files/introduction}
+\include{Files/overall_description}
+\include{Files/specific_requirement}
+\include{Files/alloy}
+\include{Files/effort_spent}
+\include{Files/references}
+
+\end{document}
