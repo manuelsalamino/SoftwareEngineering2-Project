@@ -1,0 +1,84 @@
+\section{Overall Description}
+
+% mettere in automatico Section [number]
+\subsection{Product
+perspective}
+Here we discuss in details all the shared phenomena outlined in Section 1.3 and we also provide a domain model through class and state diagrams.
+\\\newline
+    \noindent\textbf{Shared Phenomena, controlled by the world and observed by the machine. }
+\begin{itemize}
+    \item Register/login: a normal person or a municipality worker can register to the application through two different intuitive forms; SafeStreets collects all the information inserted by the User, creates an account and verify the validity of the information given through a email-confirmation message. Once the User confirms its account he/she can proceed to login.
+    \item Report of a traffic violation: the User is able to report traffic violations at any time, he/she can open the application, select \textit{take a picture} and then send the report including the picture, the type of violation and the name of the street where the violation occurred.
+    %levato perché forse non ha senso
+    %\item Addition of further information: the User can add further information to the report that is going to be sent, the information can be the license plate of the car, the exact street in which the car was parked, the time in which
+    \item The Municipality offers up-to-date information about accidents: in the Municipality web platform there is a service (daily updated) that indicates streets in which accidents occurred. In this way the System can observe safe/unsafe areas.
+\end{itemize}
+
+    \noindent\textbf{Shared Phenomena, controlled by the machine and observed by the world.}
+      \begin{itemize}
+      % controllare se forwarding va bene
+          \item Forwarding of traffic violations: every time a user sends a traffic violation, the System forwards it to the authorities. The message sent by the System contains the photo of the violation, the type of violation, the street in which it took place and the area in which the photo was taken (since there may be more than one street with that name).
+          \item Visualization of own reports: the System makes it possible for the users to view the own reports by performing a query to the database and displaying them in a ListView in the application.
+          %forse no?
+          %\item Verification of identity of the User:
+          \item Visualization safe/unsafe areas: the System through the service offered by the municipality is able to get a list of areas in which accidents took place, thus the System can show unsafe and safe areas to the User.
+          % c'è una parola per una cosa che avviene spesso, ma non me la ricordo, se ve la ricordate fatemi sapere per favore. grazies.
+          \item Suggest possible interventions: the System,  by using a list of known and effective solutions for some common violations, is able to suggest possible interventions in order to reduce the number of violations and make unsafe areas safer.
+          % poi safer non mi piace tantissimo
+          \item Generate traffic tickets: the municipality, by observing the reports provided by Safe4Streets, is able to  generate traffic tickets by using a functionality of the application.
+          % forse non ci va funcionality ma opzione
+          \item Notify about modified photos: if the User modifies a photo in order to send malicious reports, the system mark the User as a malicious User and sends a message about this event to authorities (that already received reports created by the User). 
+          % mi ricordavo che to illustrate è bello da dire
+          \item Generate statistics: the System is able to generate graphs that illustrate statistics, like the most egregious offenders, the effectiveness of the application itself, etc.
+          \end{itemize}
+          
+      
+
+
+\subsection{Product
+functions}
+
+\textbf{SafeStreets}\\
+
+\textit{SafeStreets} was born with the intention of improving urban traffic mobility, by collecting notifies made by Users about many kinds of traffic violations. Then these information can be consulted by Users themselves, or from a Third Part, the traffic competent authorities, or the municipality, which can create tickets based on these information, on which integrity it is necessary to pay particular attention. Indeed, \textit{SafeStreets} provides useful suggestions built upon the crossing of municipality's and \textit{SafeStreets}'s data. \\
+Let's see more in the details the functions mentioned above:\\\\
+
+\begin{itemize}
+    \item \textbf{Notifying violations}\\\\
+    The Users who is witness of a rule violation, and wants to notify it through \textit{SafeStreets}, has to be registered to the application; then he/she can fill up the notification form provided by the application, with a picture or a video of the violation occurring, the kind of violation, the kind of vehicle, the position, (or the address, which can be anyway gathered from GPS), and the license plate of the indeed vehicles.\\
+    Not all of these data are mandatory for the User to send: \textit{SafeStreets} uses an algorithm to catch the license plates from the picture, can obtain the address by the GPS position, and it implements a deep learning algorithm to recognize the vehicles it self. \textit{SafeStreets} is going to attach these computed metadata to the notification, in case of missing.
+    
+    \item\textbf{Accessing violations data}\\\\
+    Registered Users (quelli non registrati possono?) and authorities can access the information stored by the application. \\ \textit{SafeStreets} provides an easy-use interface that allows to  carry out a search for violations based upon different criteria: the \textit{kind} of the violation,the \textit{place} in which happens, the \textit{time}, and the \textit{kind of vehicle} involved. A User can, for example, to search for a place, and than see at which time slot of the day, more violations are committed in that place, or in which place or at which time slot, a precise type of violation occurs the most.\\
+    By the way, due to privacy purposes, license plates related to violations are not visible by a normal User, neither a User can search some information about a precise vehicle with a precise license place. Only authorities can access those "more sensible" data,  
+    
+    (Da qui alla fine dell'item andrà spostato tutto nella sezione dei functions per le authorities) 
+    
+    and in order to build this authorization diversification, a different type of registration will be reserved for authorities Users. (Da decidere come)
+    
+    \item\textbf{SafeStreets' suggestion mechanism}\\\\
+    If the local municipality provides a way to access their own urban traffic and violations data, \textit{SafeStreets} can cross them, to enlarge the amount of information accessible, and exploit them to formulate suggestions in order to increase the functionality of the urban infrastructure, reduce the violations, improve road conditions.\\
+    If we imagine a situation in which \textit{SafeStreets} knows about huge amount of bike lane invasion violations, and municipality knows that in that zone, many people use bikes for moving, \textit{SafeStreets} can cross those information and provide the suggestion to build a separation line between the car road, and the bike lane, because it should be a good investment, knowing the fact that not only there are lots of violations, but also that those could be very dangerous, given the number of people using bike in that zone.
+    
+    \item\textbf{vado a cena e finisco ;);););););)(;(;(;(;(;(;(;(;}
+\end{itemize}
+
+\subsection{User
+characteristics}
+% se non vi piace possesses pssiamo cambiarlo
+SafeStreets is an application suitable for any adult person that possesses a mobile phone.
+\subsubsection{Actors}
+\begin{itemize}
+    \item \textbf{Guest}: a person who downloaded the application and still has to register, he cannot use any functionality of the application.
+    \item \textbf{User}: once a guest has registered through the initial form of the application, he gets an account with a \textit{username} and a \textit{password}. Moreover, the User has accepted to gives his location and access to the camera of the mobile phone.
+    \item \textbf{Authority}: a municipality worker that is able to generate traffic tickets from the violations reported. Furthermore, he can access to other functionalities that a simple user cannot even see.
+    %non mi viene in mente nessun altro
+    %\item \textbf{}
+\end{itemize}
+\subsection{Assumptions,
+dependencies
+and
+constraints}
+\subsubsection{Domain Assumptions}
+\subsubsection{Dependencies}
+\subsubsection{Constraints}
