@@ -43,24 +43,39 @@ functions}
 \textit{SafeStreets} was born with the intention of improving urban traffic mobility, by collecting notifies made by Users about many kinds of traffic violations. Then these information can be consulted by Users themselves, or from a Third Part, the traffic competent authorities, or the municipality, which can create tickets based on these information, on which integrity it is necessary to pay particular attention. Indeed, \textit{SafeStreets} provides useful suggestions built upon the crossing of municipality's and \textit{SafeStreets}'s data. \\
 Let's see more in the details the functions mentioned above:\\\\
 
+\textbf{Basic User functions} \\
 \begin{itemize}
     \item \textbf{Notifying violations}\\\\
     The Users who is witness of a rule violation, and wants to notify it through \textit{SafeStreets}, has to be registered to the application; then he/she can fill up the notification form provided by the application, with a picture or a video of the violation occurring, the kind of violation, the kind of vehicle, the position, (or the address, which can be anyway gathered from GPS), and the license plate of the indeed vehicles.\\
-    Not all of these data are mandatory for the User to send: \textit{SafeStreets} uses an algorithm to catch the license plates from the picture, can obtain the address by the GPS position, and it implements a deep learning algorithm to recognize the vehicles it self. \textit{SafeStreets} is going to attach these computed metadata to the notification, in case of missing.
+    Not all of these data are mandatory for the User to send, only a picture, the GPS position and the kind of violations are: \textit{SafeStreets} uses an algorithm to catch the license plates from the picture, can obtain the address by the GPS position, and it implements a deep learning algorithm to recognize the vehicles by it self. \textit{SafeStreets} is going to attach these computed metadata to the notification, in case of missing. Time is automatically taken from the notification delivery time.
     
-    \item\textbf{Accessing violations data}\\\\
-    Registered Users (quelli non registrati possono?) and authorities can access the information stored by the application. \\ \textit{SafeStreets} provides an easy-use interface that allows to  carry out a search for violations based upon different criteria: the \textit{kind} of the violation,the \textit{place} in which happens, the \textit{time}, and the \textit{kind of vehicle} involved. A User can, for example, to search for a place, and than see at which time slot of the day, more violations are committed in that place, or in which place or at which time slot, a precise type of violation occurs the most.\\
-    By the way, due to privacy purposes, license plates related to violations are not visible by a normal User, neither a User can search some information about a precise vehicle with a precise license place. Only authorities can access those "more sensible" data,  
+    \item\textbf{Mining information from data}\\\\
+    Registered Users (quelli non registrati possono?) can access the  data stored by the application, in order to mine useful information. \\ \textit{SafeStreets} provides an easy-use interface that allows to  carry out a search for violations based upon different criteria: the \textit{kind} of the violations, the \textit{place} in which happen, the \textit{time}, and the \textit{kind of vehicle} involved. 
+    A user can then extract information from this data, for example, search for a place, and than see at which time slot of the day, more violations are committed in that place, or in which place or at which time slot, a precise type of violation occurs the most.\\
+    By the way, due to privacy purposes, license plates related to violations are not visible by a normal User, neither a User can search some information about a precise vehicle with a precise license place.
     
-    (Da qui alla fine dell'item andrà spostato tutto nella sezione dei functions per le authorities) 
+    \end{itemize}  
     
-    and in order to build this authorization diversification, a different type of registration will be reserved for authorities Users. (Da decidere come)
+    \textbf{Authority Users functions} \\
     
-    \item\textbf{SafeStreets' suggestion mechanism}\\\\
-    If the local municipality provides a way to access their own urban traffic and violations data, \textit{SafeStreets} can cross them, to enlarge the amount of information accessible, and exploit them to formulate suggestions in order to increase the functionality of the urban infrastructure, reduce the violations, improve road conditions.\\
-    If we imagine a situation in which \textit{SafeStreets} knows about huge amount of bike lane invasion violations, and municipality knows that in that zone, many people use bikes for moving, \textit{SafeStreets} can cross those information and provide the suggestion to build a separation line between the car road, and the bike lane, because it should be a good investment, knowing the fact that not only there are lots of violations, but also that those could be very dangerous, given the number of people using bike in that zone.
+    \begin{itemize}
+   
     
-    \item\textbf{vado a cena e finisco ;);););););)(;(;(;(;(;(;(;(;}
+    \item\textbf{SafeStreets suggestion mechanism}\\\\
+    If the local municipality provides a way to access their own urban traffic and violations data, \textit{SafeStreets} can cross them, to enlarge the amount of information accessible, and exploit them to formulate suggestions for the municipality, in order to increase the functionality of the urban infrastructure, reduce the violations, improve road conditions.\\ Authorities and municipality can ask for these suggestions for various areas, with a function button on the application interface.\\
+    Imagine a situation in which \textit{SafeStreets} knows about huge amount of bike lane invasion violations, and municipality knows that in that zone, many people use bikes for moving, then \textit{SafeStreets} can cross those information and provide the suggestion to build a separation line between the car road, and the bike lane, because it should be a good investment, knowing the fact that not only there are lots of violations, but also that those could be very dangerous, given the number of people using bike in that zone. 
+    
+    
+     
+    \item\textbf{Searching for violations}\\\\
+    In addition to the mining functions provided for normal users, Authorities can also access some more "sensible data", and carry out more precise searches about violations. They can access the list of violations, with relatives license plates and data of involved people. In order to build this authorization diversification, a different type of registration will be reserved for authorities Users. (Da decidere come).
+    Authorities can also use the application to get suggestions about which are the most unsafe urban areas, and how to get them better.
+    
+    
+    \item\textbf{Traffic tickets service}\\\\
+    \textit{SafeStreets} give road Authorities the possibility to generates traffic tickets from the violations information sent by Users. An appointee authority User can check a notified violation and all the data attached to it, confirm that it is actually a violation, and then the use function provided by \textit{SafeStreets} (that is linked to the authorities management system) to generate a ticket. \\
+    In order to make this right, \textit{SafeStreets} has to ensure that the chain of custody of the data, from the user to the data store, is completely reliable. To do this, security algorithms perform a validity check on the sent pictures, to be sure the picture is not been modified. In case it is, discard the notification. Discarded data are used to make statistical analysis.
+    Another filtering level is applied by allowing Users to only send pictures taken while filling up the notification form, and not to upload previously taken ones. In this way, it's harder for a User to modify a picture before sending it. 
 \end{itemize}
 
 \subsection{User
@@ -70,7 +85,7 @@ SafeStreets is an application suitable for any adult person that possesses a mob
 \subsubsection{Actors}
 \begin{itemize}
     \item \textbf{Guest}: a person who downloaded the application and still has to register, he cannot use any functionality of the application.
-    \item \textbf{User}: once a guest has registered through the initial form of the application, he gets an account with a \textit{username} and a \textit{password}. Moreover, the User has accepted to gives his location and access to the camera of the mobile phone.
+    \item \textbf{User}: once a guest has registered through the initial form of the application, he gets an account with a \textit{username} and a \textit{password}. Moreover, the User has accepted to give his location and access to the camera of the mobile phone.
     \item \textbf{Authority}: a municipality worker that is able to generate traffic tickets from the violations reported. Furthermore, he can access to other functionalities that a simple user cannot even see.
     %non mi viene in mente nessun altro
     %\item \textbf{}
