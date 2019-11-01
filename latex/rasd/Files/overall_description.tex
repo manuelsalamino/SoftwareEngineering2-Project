@@ -32,7 +32,32 @@ Here we discuss in details all the shared phenomena outlined in Section 1.3 and 
           \item Generate statistics: the System is able to generate graphs that illustrate statistics, like the most egregious offenders, the effectiveness of the application itself, etc.
           \end{itemize}
           
-      
+
+\vspace{40px}      
+
+\subsubsection{Class Diagram}
+    \begin{figure}[h]
+        \includegraphics[scale=0.5]{ClassDiag.png}
+        \caption{Class Diagram}
+        \centering
+    \end{figure}
+
+\newpage
+
+\subsubsection{State Diagrams}
+    \begin{figure}[h]
+        \includegraphics[scale=0.5]{StateDiag_addReport.png}
+        \caption{State Diagram of the insertion of a new Report by an User}
+        \centering
+    \end{figure}
+    
+    \vspace{30px}
+    
+    \begin{figure}[h!]
+        \includegraphics[scale=0.5]{StateDiag_verifyReport.png}
+        \caption{State Diagram of the checking of a Report by an Authority}
+        \centering
+    \end{figure}
 
 
 \subsection{Product
@@ -94,6 +119,33 @@ SafeStreets is an application suitable for any adult person that possesses a mob
 dependencies
 and
 constraints}
+
+
 \subsubsection{Domain Assumptions}
+\begin{itemize}
+    \item {[D.1]} Personal data given by Users during the registration process are assumed to be correct.
+    \item {[D.2]} Each User is assumed to be unique.
+    \item {[D.3]} Pictures sent by Users are assumed to be in some precise file format.
+    \item {[D.4]} The GPS is assumed to be subject to some precision error.
+    \item {[D.5]} Violations for which a ticket is generated are supposed to be validated by authorities first.
+    \item {[D.6]} Information obtained by authorities are supposed to be correct.
+    \item {[D.7]} Is assumed that there's no bounds which suggestions provided by the S2B have to respect.\\
+\end{itemize}
+
 \subsubsection{Dependencies}
+\begin{itemize}
+    \item The S2B will use the GPS service of the Users smartphone.
+    \item The S2B will use the camera function of the Users smartphone.
+    \item The S2B will use the internet connectivity of the Users smartphone.
+    \item The S2B will rely on a DBMS to store all the obtained data.
+    \item The S2B will use some external API to provide  a map view service to the Users.
+    \item The S2B will use the information provided by local municipality, to cross data and create suggestions.\\
+\end{itemize}
+
+
 \subsubsection{Constraints}
+Per ora lo lascio vuoto come diceva salabig. Poi decideremo\\
+
+
+
+
