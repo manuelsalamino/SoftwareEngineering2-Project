@@ -8,29 +8,28 @@ In general this document is meant for developers tasked with the implementation 
 The application provides Users a way to send data about a violation (most common are parking violations ones, e.g. vehicles parked in reserved places), like the kind of violation, pictures of the involved vehicles, and the date and the position in which the violation occurred. The User can also specify the license plate of the vehicle and the name of the street, but in case he/she doesn't, the application is equipped with algorithms capable to obtain those and other metadata by pictures and position.\\\\
 SafeStreets stores all these data, received ones and computed ones, and allows Users and competent authorities to access them, in order to gather useful information about traffic and violations, e.g. areas with the higher number of violations. This could, for example, help municipality to identify areas in which they must watch over.\\\\
 Moreover, the System is also able to combine its own data, with data provided by municipality authorities, in case they offer a service that provides them. Basing on the information obtained in this way, SafeStreets will give suggestions about how to improve urban mobility situation, or about how to prevent some kind of violations from being committed (e.g. putting some cameras in vulnerable areas, add some kind of barrier and so on).\\\\
-For last, authorities are allowed to use information provided by the application and generate traffic tickets. This leads the application to having to implement a method for ensuring the integrity of the incriminating data, from when the data is generated, to when it is delivered to the application. authorities have to be sure, for example, that they're not giving a fine to a vehicle just because of a picture alteration has been carried out by a notifying User, so altered information must be discarded. SafeStreets will also use statistics on those "rotten" data with the aim to do measure on number of bad Users, or to monitor the reliability and effectiveness of the application it self. \\\\
+For last, authorities are allowed to use information provided by the application and generate traffic tickets. This leads the application to having to implement a method for ensuring the integrity of the incriminating data, from when the data is generated, to when it is delivered to the application. Authorities have to be sure, for example, that they're not giving a fine to a vehicle just because of a picture alteration has been carried out by a notifying User, so altered information must be discarded. SafeStreets will also use statistics on those "rotten" data with the aim to do measure on number of bad Users, or to monitor the reliability and effectiveness of the application it self. \\\\
 
 Here below are listed out the goals we did talk about:
 
 \begin{itemize}
 \item {[G.1]} Allows the User to access the functionalities of the application from different locations and devices.
 \item {[G.2]} Allows the User to notify about traffic violations.
-\item {[G.3]} Allows the User to send pictures and kind of the violation, and other information like the license plates of involved vehicles.
-\item {[G.4]} Must attach other metadata to the data sent by the User.
-\item {[G.5]} Must be able to obtain data like the license plates, or the name of the street involved in the violation, by the pictures and the position sent by the User.
-\item {[G.6]} Must store all of these information in a secure way.
-\item {[G.7]} Allows both normal Users and authority Users to access its data, and gather relevant information about streets and violations (e.g. streets with more violations).
-\item {[G.8]} Must cross its data with the municipality ones, if they provide an interface for allowing other users to access them.
-\item {[G.9]} Must provide suggestions to improve traffic safety.
-\item {[G.10]} Must ensure that if any corrupted information is provided by Users, it get discarded.
-\item {[G.11]} Must use altered data to provide statistic analysis.
-\item {[G.12]} Allows Users with authority permissions to generate traffic tickets from its information.   
+\item {[G.3]} Allows the User to send pictures, type of the violation, license plate and time.
+\item {[G.4]} Must compute license plate, position and address from the received data.
+\item {[G.5]} Allows Authority to check the correctness of a report.
+\item {[G.6]} Allows Authority to generate traffic tickets from verified reports.
+\item {[G.7]} Allows both User and Authority to access information about unsafe areas.
+\item {[G.8]} Allows both User and Authority to access statistics about effectiveness of SafeStreets.
+\item {[G.9]} Allows both User and Authority to access statistics about violations.
+\item {[G.10]} Must cross its data with the municipality ones in order to provide suggestions to improve urban mobility.
+\item {[G.11]} Must ensure that corrupted information are discarded.
 
 
 \end{itemize}
 
 \subsection{Scope}
-    According to the World and Machine paradigm, introduced by M. Jackson and P. Zave in 1995. We can idenfity the Machine as the System to be developed and the environment in which SafeStreets will be used as the World. The separation between these two concepts allow us to classify the entire phenomena in three different types.
+    According to the World and Machine paradigm, introduced by M. Jackson and P. Zave. We can idenfity the Machine as the System to be developed and the environment in which SafeStreets will be used as the World. The separation between these two concepts allow us to classify the entire phenomena in three different types.
     \vspace{0.5cm}
     
     % to be fixed vspace
@@ -66,7 +65,7 @@ Here below are listed out the goals we did talk about:
     
     \noindent{Controlled by the machine and observed by the World.}
     \begin{itemize}
-      \item The System sends traffic violations to authorities.
+      \item The System allows the authorities to access to violation reports.
       \item The System allows users to view own reports.
       %forse no?
       %\item The \textit{System} asks and verifies the identity of the User.
@@ -81,7 +80,7 @@ Here below are listed out the goals we did talk about:
 \subsection{Definitions, Acronyms, Abbreviations}
     \subsubsection{Definitions}
         \begin{itemize}
-            \item \textbf{Guest}: a person who 
+            \item \textbf{Guest}: a person who has not logged in or registered yet and cannot use the functionalities of the System.
             \item \textbf{User}: a person that uses the application to send notifications of traffic violations.
             %forse employee era meglio?
             \item \textbf{Authority}: a municipality worker that is able to create traffic tickets depending on the violation that a person has committed.
@@ -103,19 +102,19 @@ Here below are listed out the goals we did talk about:
             \item {[\textbf{G.i}]} : i-th goal.
             \item {[\textbf{D.i}]} : i-th domain assumption.
             \item {[\textbf{R.i}]}: i-th functional requirement.
-            \item {[\textbf{R.i-NF}]}: i-th non functional requirement.
-            \item {[\textbf{UC.i}]}: i-th use case.
+            \item {[\textbf{UCi}]}: i-th use case.
         \end{itemize}
     
 
-\subsection{Revision
-history}
+%\subsection{Revision history}
 
 \subsection{Reference
 Documents}
     \begin{itemize}
         \item Alloy Documentation
         \item Project assignment specifications
+        \item IEEE Standard on Requirement Engineering (ISO/IEC/IEEE 29148) 
+        % https://www.iso.org/standard/45171.ht
     \end{itemize}
 
 \subsection{Document
