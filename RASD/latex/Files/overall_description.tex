@@ -1,6 +1,6 @@
 \section{Overall Description}
 
-% mettere in automatico Section [number]
+%  in automatico Section [number]
 \subsection{Product
 perspective}
 Here we discuss in details all the shared phenomena outlined in Section 1.3 and we also provide a domain model through class and state diagrams.
@@ -21,7 +21,8 @@ Here we discuss in details all the shared phenomena outlined in Section 1.3 and 
           \item Visualization of own reports: the System makes it possible for the users to view the own reports by performing a query to the database and displaying them in a ListView in the application.
           %forse no?
           %\item Verification of identity of the User:
-          \item Visualization safe/unsafe areas: the System through the service offered by the municipality is able to get a list of areas in which accidents frequently took place, thus the System can show unsafe and safe areas to the User.
+          \item Visualization safe/unsafe areas: the System through the service offered by the municipality is able to get a list of areas in which accidents took place, thus the System can show unsafe and safe areas to the User.
+          % c'è una parola per una cosa che avviene spesso, ma non me la ricordo, se ve la ricordate fatemi sapere per favore. grazies.
           \item Suggest possible interventions: the System,  by using a list of known and effective solutions for some common violations, is able to suggest possible interventions in order to reduce the number of violations and make unsafe areas safer.
           % poi safer non mi piace tantissimo
           \item Generate traffic tickets: the municipality, by observing the reports provided by Safe4Streets, is able to  generate traffic tickets by using a functionality of the application.
@@ -74,7 +75,7 @@ Let's see more in the details the functions mentioned above:\\\\
     Not all of these data are mandatory for the User to send, only a picture, the GPS position and the kind of violations are: \textit{SafeStreets} uses an algorithm to catch the license plates from the picture, can obtain the address by the GPS position, and it implements a deep learning algorithm to recognize the vehicles by it self. \textit{SafeStreets} is going to attach these computed metadata to the notification, in case of missing. Time is automatically taken from the notification delivery time.
     
     \item\textbf{Mining information from data}\\\\
-    Registered Users (quelli non registrati possono?) can access the  data stored by the application, in order to mine useful information. \\ \textit{SafeStreets} provides an easy-use interface that allows to  carry out a search for violations based upon different criteria: the \textit{kind} of the violations, the \textit{place} in which happen, the \textit{time}, and the \textit{kind of vehicle} involved. 
+    Users can access the  data stored by the application, in order to mine useful information. \\ \textit{SafeStreets} provides an easy-use interface that allows to  carry out a search for violations based upon different criteria: the \textit{kind} of the violations, the \textit{place} in which happen, the \textit{time}, and the \textit{kind of vehicle} involved. 
     A user can then extract information from this data, for example, search for a place, and then see at which time slot of the day, more violations are committed in that place, or in which place or at which time slot, a precise type of violation occurs the most.\\
     By the way, due to privacy purposes, license plates related to violations are not visible by a normal User, neither a User can search some information about a precise vehicle with a precise license place.
     
@@ -123,7 +124,7 @@ constraints}
 \subsubsection{Domain Assumptions}
 \begin{itemize}
     \item {[D.1]} Personal data given by Users during the registration process are assumed to be correct.
-    \item {[D.2]} Each User is assumed to be unique.
+    %\item {[D.2]} Each User is assumed to be unique.
     \item {[D.3]} Pictures sent by Users are assumed to be in some precise file format.
     \item {[D.4]} The GPS is assumed to be subject to some precision error.
     \item {[D.5]} Violations for which a ticket is generated are supposed to be validated by authorities first.
@@ -142,7 +143,7 @@ constraints}
 \end{itemize}
 
 
-\subsubsection{Constraints}
+%\subsubsection{Constraints}
 
 
 
