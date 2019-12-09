@@ -19,7 +19,7 @@ Further details on the System components and their interactions will be explaine
 \centering
 \advance\leftskip-6cm
           \includegraphics[width=1.5\textwidth,left]{Images/Component_view.png}
-        \caption{Deployment Diagram}
+        \caption{Component Diagram}
 \end{figure}
 
 
@@ -172,7 +172,7 @@ If the validation fails, the Authentication Manager replies to the User with an 
 Otherwise, if the validation succeeds, the Authentication Manager, through the Data Storage Manager, performs a query to the Database. Then, if the number of tuples received is not equal to one, it returns a error message allowing the user to know that the username or password were incorrect, if the number of tuples is equal to one then the Authentication Manager generates a token that will allow the Server components to know that the user is logged in, this token is saved in the Database in order to validate it every time a request arrives. 
 
 \begin{figure}[H]
-          \includegraphics[scale=0.5]{Images/seq_log_9.png}
+          \includegraphics[scale=0.5]{Images/seq_login_definitivo.png}
         \caption{Login of a User Runtime View}
 \end{figure}
 
@@ -194,11 +194,12 @@ The appointed services are:
 \end{figure}
 
 \subsubsection{Generate Traffic Ticket Runtime View}
-The sequence diagram below shows the RunTime view of the generation of a Traffic Ticket, like in the previous RunTime View the first steps are used to verify if the user exists and has a valid authentication token. The difference here is that the verification steps are started by the Report Manager since the User requests the Reports Lists, once the Report Manager gets the User instance it asks to the Authentication Manager if it is an Authority. If the verification results \textit{False} it returns a ERROR message to the User who sent the initial request. If the verification is \textit{True} then it invokes a query, through the Data Storage Manager, that allows to get the Reports corresponding to Authority's municipality.\newline
+The sequence diagram below shows the RunTime view of the generation of a Traffic Ticket, like in the previous RunTime View the first steps are used to verify if the user exists and has a valid authentication token. The difference here is that the verification steps are started by the Report Manager since the User requests the Reports Lists, Once the Report Manager gets the User instance it asks to the Authentication Manager if it is an Authority. If the verification results \textit{False} it returns a ERROR message to the User who sent the initial request. If the verification is \textit{True} then it invokes a query, through the Data Storage Manager, that allows to get the Reports corresponding to Authority's municipality.\newline
 The Authority that wants confirm/reject a real violation, sends a request to get the details of that report. Once he/she has seen the details as photo, license plate, type of violation and, eventually, notes added by the Report Manager, he/she can choose to confirm or reject the report through a new POST request containing the decision and the reportID that will be send to the Ticket Manager.\newline
 If the decision is to \textit{reject} the report, then the Ticket Manager will invoke a query, through the Data Storage Manager, that allows to update the status of the Report as \textit{rejected}. If the decision is to confirm the report then the Ticket Manager besides updating the status it will also perform an externalQuery (through the Municipality Traffic Ticket API) that will generate the real Traffic Ticket that will be send to the Person who committed the violation.\newline 
+For simplicity the interactions that verifies that a Report is confirmed by only one Authority (and only one time) has been omitted but it should be kept in mind that, before modifying the status of the report, a locking mechanism is performed in order to do not send (to the Authority Ticket Service) the information of the report more than one time.\newline
 \begin{figure}[H]
-          \includegraphics[scale=0.4]{Images/seq_gen_multa_definitvo_ultimo.png}
+          \includegraphics[scale=0.4]{Images/seq_gen_multa_def_ultimo2.png}
         \caption{Creation of a Traffic Ticket Runtime View}
 \end{figure}
 
@@ -214,12 +215,11 @@ As usual the first step is the verification of the authentication and of the nec
 In this last sequence diagram is shown the Runtime behaviour of the Application when an Authority or a User want to see SafeStreets Statistics.\\
 After the check of authentication (both User and Authority can see Statistics, but they must be logged in) the Data Manager sends the request to the Statitics Manager which take from the Database all the Reports and then extract information from them in order to generate statistics.\\
 The final step is to send the generated statistics to the Application Client.
-
 \begin{figure}[H]
           \includegraphics[scale=0.35]{Images/Seq_viewStatistics.png}
         \caption{Request of Statistics Runtime View}
 \end{figure}
-
+\newpage
 \subsection{Component interfaces}
 \textbf{Interface Diagram} 
 
@@ -227,15 +227,10 @@ The final step is to send the generated statistics to the Application Client.
 \centering
 \advance\leftskip-6cm
           \includegraphics[width=1.5\textwidth,left]{Images/Component_interface.png}
-        \caption{Deployment Diagram}
+        \caption{Component Interface diagram}
 \end{figure}
-
-\textbf{REST API}\\\\
-
-
-%TABLE 1
-
-
+\newpage
+\textbf{REST API}
 \begin{table}[H]
 \begin{tabular}{|l|p{0.9\textwidth}|}
 \hline

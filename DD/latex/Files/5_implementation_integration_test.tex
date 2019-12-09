@@ -14,13 +14,14 @@ The implementation order each component in the Server side shall be:
 \begin{enumerate}
     \item Database Services (Database, Data Storage Manager)
     \item Encryption Manager and Network Manager
-    \item Traffic Ticket Services (Report Manager, Ticket Manager)
     \item Account Services (Authentication Manager, User Manager, Authority Manager)
+    \item Traffic Ticket Services (Report Manager, Ticket Manager)
     \item Supplementary Services (Data Manager, Suggestions Manager, Statistics Manager, Urban Safeness Manager)
 \end{enumerate}
-In the Database Services, since Data Storage Manager and Data Manager use the Database, the idea of the \textit{bottom-up} approach is to implement first the basic structure of the Database (and to chose the DBMS). Once the Database has been implemented, both Data Storage Manager and Data Manager can be implemented in parallel.\newline
+In the Database Services, since Data Storage Manager uses the Database, the idea of the \textit{bottom-up} approach is to implement first the basic structure of the Database (and to chose the DBMS). Once the Database has been implemented, the Data Storage Manager can be implemented.\newline
 Network Manager and Encryption Manager are used to allow a secure communication between external services and internal services, and since it is important for the integration of the subsystems and components, it should be implemented as soon as the Database Services are working and we are able to receive/send messages.\newline
-Traffic Ticket Services are crucial for the basic functionalities of SafeStreets, thus, these components should be implemented before the Supplementary components and the components that allow to login/register.\newline
+Account Services allows to manage all the information about Users and what functionalities they can access, thus, this set of components should be implemented before Traffic Ticket Services.\newline
+Traffic Ticket Services are crucial for the basic functionalities of SafeStreets, thus, these components should be implemented before the Supplementary components.\newline
 The implementation order of each component in the client application side shall be:
 \begin{enumerate}
 	\item Encryption Manager and Network Manager
@@ -33,11 +34,18 @@ In the following diagrams it will be shown how the integration and testing are p
 \subsubsection{Integration Process}
 Following what have been said in the previous section, the integration process follows an incremental approach, when a set of components (in the same Service) have been implemented, their integration will be performed.\\\\
 \textbf{Integration of components inside the Database Services }\newline
-The first set of components to be integrated and tested are the ones that interact with the Database, thus, once the implementation of Data Storage Manager, Database, Data Manager have been completed their integration and testing should begin.
+The first set of components to be integrated and tested are the ones that interact with the Database, thus, once the implementation of the Database have been completed its integration and testing with the Data Store Manager should begin.
      \begin{figure}[H]
      \centering
-          \includegraphics[width=0.6\textwidth]{Images/db_services.png}
+          \includegraphics[width=0.6\textwidth]{Images/db_services_definitivo.png}
         \caption{Integration of Database Services}
+    \end{figure}
+            \noindent\textbf{Integration of components inside the Account Services }\newline
+This set contains the components that allows to identify and authenticate a user. Once the User Manager and Authority Manager have been implemented and the unit testing of each have been performed, they can be integrated with the Authentication Manager.
+     \begin{figure}[H]
+         \centering
+          \includegraphics[width=0.6\textwidth]{Images/account_service.png}
+        \caption{Integration of Account Services}
     \end{figure}
 \noindent\textbf{Integration of components inside the Traffic Ticket Services }\newline
 This set of components contains the Report Manager and the Ticket Manager, the first component that has been implemented is Ticket Manager since it is used by the Report Manager, once the implementation of Ticket Manager and Report Manager have been completed their integration and testing will start.
@@ -46,27 +54,21 @@ This set of components contains the Report Manager and the Ticket Manager, the f
           \includegraphics[width=0.6\textwidth]{Images/tt_services.png}
         \caption{Integration of Traffic Ticket Services}
     \end{figure}
-    \noindent\textbf{Integration of components inside the Traffic Ticket Services }\newline
-This set contains the components that allows to identify and authenticate a user. Once the User Manager and Authority Manager have been implemented and the unit testing of each have been performed, they can be integrated with the Authentication Manager.
-     \begin{figure}[H]
-         \centering
-          \includegraphics[width=0.6\textwidth]{Images/account_service.png}
-        \caption{Integration of Account Services}
-    \end{figure}
+
     \noindent\textbf{Integration of components inside the Supplementary Services }\newline
-    Once the components that allows to perform the basic functionalities have been integrated and tested, the same process should be performed for the components that contains the logic behind the supplementary services. Following the \textit{bottom-up} approach, once the leaves in the use hierarchy are ready to be integrated, the integration with Data Manager (that is inside Database Services) can start.
+    Once the components that allows to perform the basic functionalities have been integrated and tested, the same process should be performed for the components that contains the logic behind the supplementary services. Following the \textit{bottom-up} approach, once the leaves in the use hierarchy are ready to be integrated, the integration with Data Manager can start.
          \begin{figure}[H]
              \centering
-
           \includegraphics[width=0.6\textwidth]{Images/supplementary_services.png}
         \caption{Integration of Supplementary Services}
     \end{figure}
+
     \noindent\textbf{Integration of services inside the Back-end Subsystem}\newline
 Once all the components inside the application server have been implemented, integrated and tested, the last integration and test can be performed and, thus, the back-end part will be ready to interact with the the client application.
     
          \begin{figure}[H]
              \centering
-      \includegraphics[width=1\textwidth]{Images/back_end.png}
+      \includegraphics[width=1\textwidth]{Images/back_end_definitivo.png}
         \caption{Integration of the Back-end Subsystem}
     \end{figure}
 \vspace{2mm}
