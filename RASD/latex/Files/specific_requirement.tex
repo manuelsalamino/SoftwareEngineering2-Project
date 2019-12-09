@@ -3,104 +3,130 @@
 \subsection{External Interface Requirements}
 \textit{SafeStreets} is a mobile based application, the following section will give a more detailed description, in terms of hardware, software and communication interfaces.
 \subsubsection{User Interfaces}
-    \textbf{Login} \newline When a Guest downloads SafeStreets for the first time, the first interface will be the login one. In \textit{Figure 4} it is also shown that if the Guest doesn't have an account it is possible to proceed by registering and creating a new account.\vspace{1cm}
+    \textbf{Login} \newline When a Guest downloads SafeStreets for the first time, the initial interface will be the login one. In \textit{Figure 4} it is also shown that if the Guest doesn't have an account it is possible to proceed by registering and creating a new one.\vspace{0.3cm}
+    
+    \noindent\textbf{Registration}\newline
+    In the register interface \textit{Figure 5}. It will be asked to the Guest to insert his/her personal information, and to choose an \textit{Username} and a \textit{Password}.\vspace{0.7cm}
+    
     \begin{figure}[h]
         \centering
-        \includegraphics[scale=0.56]{Images/login_register.png}
+        \includegraphics[scale=0.63]{Images/login_register2.png}
         \caption{Login and Register interface}
-    \end{figure}\newpage
-    \noindent\textbf{Register}\newline
-    In the register interface \textit{Figure 5}. It will be asked to the Guest to insert his/her personal information, to upload an Identification card (since it is required that all accounts must be authenticated) and to choose an \textit{Username} and a \textit{Password}.
-    \\\\
-        \begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.56]{Images/user_authority_menu.png}
-    \caption{User and Authority Home Page interface}
     \end{figure}
-    \newline
-    \textbf{User Home Page}\newline
+    \noindent\textbf{User Home Page}\newline
     This activity contains all the possible functionalities that a simple User can use. Thus, a User can:
     \begin{itemize}
         \item Report a Traffic Violation.
         \item View his/her own notifications sent to Authorities and their status.
-        \item View statistics like the effectiveness of the application, the most egregious offenders, etc.
-        \item Open a Map that shows safe and unsafe areas (with the option to use also the data from municipality).
+        \item View statistics, like the effectiveness of the application, the most egregious offenders, etc.
+        \item Open a Map that shows safe and unsafe areas.
     \end{itemize}
     \textbf{Authority Home Page}\newline
     For Authorities the functions available are a bit different, an authority can:
     \begin{itemize}
-        \item Access to the notifications sent by users.
+        \item Access to the notifications sent by Users.
         \item View the traffic tickets generated.
-        \item Get the suggestions elaborated by the application.
-        \item View statistics like the effectiveness of the application, the most egregious offenders, etc.
-        \item Open a Map that shows safe and unsafe areas (with the option to use also the data from municipality).
+        \item Get the suggestions that the application has elaborated crossing the Municipality data.
+        \item View statistics, like the effectiveness of the application.
+        \item Open a Map that shows safe and unsafe areas.
     \end{itemize}
-    \vspace{5mm}
+    
     \begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{Images/user_authority_menu.png}
+    \caption{User and Authority Home Page interface}
+    \end{figure}
+    
+    \noindent\textbf{Report a traffic violation}\newline
+    This form allows Users to send reports to Authorities when traffic violations occur; an User can take a photo of the violation, select the type of the violation and insert the location where it occurred. Moreover, the User can also include further information about the vehicle like the license plate or the model.
+    \vspace{8mm}
+    
+     \begin{figure}[h]
         \centering
-        \includegraphics[scale=0.8]{Images/report_violation.png}
+        \includegraphics[scale=1]{Images/report_violation.png}
         \caption{Report traffic violation interface}
     \end{figure}
-    \vspace{5mm}
-    \textbf{Report a traffic violation}\newline
-    This form allows users to notify authorities when traffic violations occur, an user takes a photo of the violation, selects the type of the violation and inserts the location where it occurred. Moreover, the User can also include further information about the vehicle like the license plate, the model, etc.
+    
     \newpage
+    
+    
+     \noindent\textbf{My Reports}\newline
+    A User is able to check all the notifications he sent to the application, \textit{Figure 7}. In this activity it is also possible to search for a specific report and see its status. There are three possible status: to be seen, accepted, rejected.
+    
+    \vspace{5mm}
     \begin{figure}[h]
         \centering
         \includegraphics[scale=0.8]{Images/my_reports.png}
         \caption{My reports interface}
     \end{figure}
     \vspace{4mm}
-    \noindent\textbf{My Reports}\newline
-    Once a User sent a notification it is possible to see all the notifications sent to authorities, \textit{Figure 7}. In this activity it is also possible to search them by their ID and see their status. There are three possible status: to be seen, accepted, rejected.
-        \newline\\
+   
+      \newpage
     \noindent\textbf{Violations list}\newline
-    An Authority is able to see all the violations sent by users, the list shows the most important information to know if an Authority is interested or not in that violation; type, date and position. It is also possible to see the trustness of the User who sent each notification.\newline
+    An Authority is able to see all the reports sent by users, occurred in the municipality she/he belongs. The list shows the most important information of the reports: type, date and position. It is also possible to see the trustness of the User who sent each notification.\newline
+    
+    \noindent\textbf{Details about a notification}\newline
+    After an Authority clicks on \textit{View details} from the Violations list, he can access to details like license plate, model of the car, position where the violation occurred and the picture sent by the user. The license plate shown is the output obtained from a image recognition algorithm.
+    \vspace{5mm}
             \begin{figure}[h]
         \centering
-        \includegraphics[scale=0.58]{Images/violations_and_details.png}
+        \includegraphics[scale=0.68]{Images/violantions_details.png}
         \caption{Violations list interface}
     \end{figure}
-    \newline\\
-    \textbf{Details about a notification}\newline
-    After an Authority clicks on \textit{View details} from the Violations list, he can access to details like license plate, model of the car, position where the violation occurred, the picture sent by the user, etc. The license plate of being shown is the output obtained from a image recognition algorithm, this output comes also with a number $\in [0,1]$ that represents the accuracy of the license plate obtained.
+    
+   \newpage
+   
+      \noindent \textbf{Traffic tickets generated}\newline
+    In the previous activity it was possible to see that an Authority can press on $X$ button to reject a report from a user or press on the check button to accept and  generate a traffic ticket related to it. In \textit{Figure 12} all the traffic tickets generated by the Authority logged in are shown, it is possible to download the traffic ticket as a PDF file.
+    
+    \vspace{5mm}
     \begin{figure}[h]
         \centering
-        \includegraphics[scale=0.68]{Images/traffic_ticket.png}
+        \includegraphics[scale=0.8]{Images/traffic_ticket.png}
         \caption{Traffic tickets interface}
-    \end{figure}\newline\\
-    \textbf{Traffic tickets generated}\newline
-    In the previous activity it was possible to see that an Authority can press on $X$ button to reject a report from a user or to press on the check button to accept and  generate a traffic ticket related to it. In \textit{Figure 12} all the traffic tickets generated by the Authority logged in are shown, It is possible to download the traffic ticket as a PDF file.
+    \end{figure}\
+    \newpage
+ 
     \newpage\vspace{3mm}
     \noindent\textbf{Get Suggestions}\newline
-    \textit{Figure 10} shows the list of possible suggestions that authorities can see, each Authority see only the possible suggestions related to the own city, so this list can be shared between different districts but in the same city. An authority can print the suggestion by downloading as a PDF file or he/she can share it to the department in charge of receiving suggestions by citizens. The suggestions are taken from an AI algorithm  that is continuously updating its own dataset by modifying the effectiveness of each possible solution to each problem.  
+    \textit{Figure 10} shows the list of possible suggestions that Authorities can see; each Authority sees only the possible suggestions related to its own municipality, so this list can be shared between different districts but in the same municipality. An Authority can print the suggestion by downloading as a PDF file or he/she can share it to the department in charge of receiving suggestions by citizens. The suggestions are taken from an AI algorithm  that is continuously updating its own data by modifying the effectiveness of each possible solution to each problem.  
+    
+    \vspace{5mm}
     
        \begin{figure}[h]
         \centering
-        \includegraphics[scale=0.9]{Images/suggestions.png}
+        \includegraphics[scale=1]{Images/suggestions.png}
         \caption{Get suggestions interface}
     \end{figure}\vspace{5mm}
+    
+    \newpage
+    
     \noindent\textbf{Statistics}\newline
-    Users and Authorities can also see statistics about traffic violations and how SafeStreets impacts in streets safeness. An example is the graph \textit{Effectiveness of SafeStreets}, in this graph it is possible to see how the rate between traffic tickets generated and notifications sent has been increasing since the last years.  
+    Users and Authorities can also see statistics about traffic violations and how SafeStreets impacts in streets safeness. An example is the graph \textit{Effectiveness of SafeStreets}, in this graph it is possible to see how the rate between traffic tickets generated and notifications sent has been increasing since the last years.\\
+    
+    \noindent\textbf{Safe/Unsafe Areas}\newline
+    This activity gives the possibility to see the tag assigned to each area in which SafeStreets has been used (or areas that are present in a service offered by the municipality). There are 4 possible labels: Safe, Unsafe, Very Safe and Dangerous. The tags inferred can be produced by merging the own data of SafeStreets with the data retreived from a service provided by the Municipality, if the option is enabled.
+    \vspace{0.3cm}
+    
        \begin{figure}[h]
         \centering
         \includegraphics[scale=0.56]{Images/statistics_safe_unsafe2.png}
         \caption{Statistics and Safe/Unsafe Areas interface}
-    \end{figure}\vspace{10mm}
-    \newline\textbf{Areas with highest traffic violations}\newline
-    This activity gives the possibility to see the tag assigned to each area in which SafeStreets has been used (or areas that are present in a service offered by the municipality). There are 4 possible labels: Safe, Unsafe, Very Safe and Dangerous. The tags inferred can be produced by merging the own data of SafeStreets with the data retreived from a service provided by the Municipality, if the option is enabled.
+    \end{figure}
+  
+  \newpage
 \subsubsection{Hardware Interfaces}
 SafeStreets is available for smartphones that guarantee location data acquisition, access to the camera and internet access.
-    \newpage
+
 \subsubsection{Software Interfaces}
 \begin{itemize}
     \item \textbf{Maps Service:} the system to be access to a map service that allows to show safe and unsafe areas.
-    \item \textbf{Municipality Accidents History Service:} SafeStreets can cross its own data with the information provided by the Municipality Accidents History API to suggest possible interventions.
-    \item \textbf{Municipality Traffic Tickets Service:} Municipality offers a service that allows to generate traffic tickets from the violations coming from SafeStreets. Safestreets sends information (confirmed as traffic violations) to the department in charge of generating traffic tickets in the municipality.
+    \item \textbf{Municipality Urban Mobility Provider:} SafeStreets can cross its own data with the information provided by the Municipality Urban Mobility Provider to suggest possible interventions, marks safe/unsafe areas and generate statistic.
+    \item \textbf{Municipality Traffic Tickets Service:} Municipality offers a service that allows Authorities to generate traffic tickets from the violations coming from SafeStreets. Safestreets sends reports information (confirmed by Authority) to the department in charge of generating traffic tickets in that Municipality.
 \end{itemize}
 
 \subsubsection{Communication Interfaces}
-The system uses HTTPS protocol to transmit data over the internet and to the DBMS.
+The system uses HTTPS protocol to transmit data over the internet.
 \subsection{Functional Requirements}
 
 
@@ -116,7 +142,7 @@ The system uses HTTPS protocol to transmit data over the internet and to the DBM
 
 
  \begin{figure}[H]
-        \includegraphics[width=1.5\textwidth,left]{Images/UCD_user_bis.PNG}
+        \includegraphics[width=1.1\textwidth,left]{Images/UCD_user.png}
         \caption{Use Case Diagram: User}
     \end{figure}
     
@@ -124,7 +150,7 @@ The system uses HTTPS protocol to transmit data over the internet and to the DBM
     
     
      \begin{figure}[H]
-          \includegraphics[width=1.5\textwidth,left]{Images/UCD_aut_bis.PNG}
+          \includegraphics[width=1.1\textwidth,left]{Images/UCD_authority.png}
         \caption{Use Case Diagram: Authority}
     \end{figure}
 
@@ -141,7 +167,7 @@ As a consequence of popular protests due to bad urban conditions, the municipali
 By using the \textit{SafeStreets} suggestion function, they can exploit the melting of their own information, crossed with the information that \textit{SafeStreets} stored in its lifetime about the violations. From all these information, \textit{SafeStreets} can suggest the municipality the best measures to implement to get the maximum urban situation improvement possibile.  \\
 
 \noindent\textbf{Scenario 3}\\
-Diane has a website in which she writes about social problems in her country, Peru. Her next article is about safeness, the solutions that each city has implemented problem and their effectiveness. She finds out that some municipalities decided to collaborate with a mobile application that involves citizens by allowing them to report traffic violations. During the investigation in which Diane was working on, she realizes that the cities that implemented it became safer and so she decides to use the statistics in \textit{SafeStreets} to show how many violations are being committed in each city that collaborated with the application and how effective is \textit{SafeStreets}.
+Diane has a website in which she writes about social problems in her country, Peru. Her next article is about safeness, the solutions that each city has implemented and their effectiveness. She finds out that some municipalities decided to collaborate with a mobile application that involves citizens by allowing them to report traffic violations. During the investigation in which Diane was working on, she realizes that the cities that implemented it became safer and so she decides to use the statistics in \textit{SafeStreets} to show how many violations are being committed in each city that collaborated with the application and how effective is \textit{SafeStreets}.
 
 %%%%%%%%  use casessssss %%%%%%%%%%%%%%%%%%%%%%%
 
@@ -623,19 +649,20 @@ When "generate" button is pressed, the \textit{System} will shows up an alert me
 
 
 
-In this section, it will be showed the functional requirements and the domain assumption related to each goal.
+In this section, it will be shown the functional requirements and the domain assumption related to each goal.
 \begin{itemize}
 
 
-\item \textbf{{[G.1]} Allows the User to access the functionalities of the application from different locations and devices.}
+\item \textbf{{[G.1]} Allows User and Authority to access the functionalities of the application from different locations and devices.}
 \begin{itemize}
-    \item \textbf{[R.1]}A \textit{guest} must be able to register and become a \textit{User}.
+    \item \textbf{[R.1]}A \textit{Guest} must be able to register and become a \textit{User}.
     
      \item \textbf{[R.2]} The S2B must provide an already created account to the \textit{Authorities}.
     
     \item \textbf{[R.3]} The S2B must check that credentials are correct, then send a confirmation e-mail.
     
-     \item \textbf{[R.4]}The S2B must check the validity of the document sent by a \textit{User} to give his/her the access to all the functionalities.
+    \item \textbf{[R.4]} The S2B must allow Authority to log in with his/her given credentials.
+    
      
       \item \textbf{[R.5]}The S2B must allow \textit{User} to log in with his/her registration credentials.
       
@@ -648,47 +675,55 @@ In this section, it will be showed the functional requirements and the domain as
         
         \item \textbf{[R.6]}The S2B must provide an algorithm for compute the trustness of reports.
         
-        \item \textbf{[R.7]}\textit{User} must be allowed to see the list of his/her reports.
+        \item \textbf{[R.7]}\textit{User} can see the list of his/her reports.
         
-        \item \textbf{[R.8]}\textit{User} must be allowed to edit or cancel his/her reports. 
+        \item \textbf{[R.8]}\textit{User} can edit or cancel his/her reports. 
         
-        \item \textbf{[R.9]}The S2B must allow the \textit{User} to send the report only within 5 minutes from when he/she starts to fill it in. 
+        \item \textbf{[R.9]}The \textit{User} must send the report only within 5 minutes from when he/she starts to fill it in. 
         
         \item \textbf{[R.10]}The S2B must submit the received reports to an \textit{Authority} for checking its validity.
         
-        \item \textbf{[R.11]}The S2B must recognize if a notification that is about to be made, may involve a violations already notified, and alert the \textit{User}
+        \item \textbf{[R.11]}The S2B must recognize if a report that is about to be made, may involve a violation already notified, and alert the \textit{User}
         
-        \item \textbf{[R.12]}The S2B must recognize if more done reports refer to the same violation.
+        \item \textbf{[R.12]}The S2B must alert the Authorities if more done reports refer to the same violation.
         
-        \item \textbf{[D.3]} Pictures sent by Users are assumed to be in some precise file format.
+        \item \textbf{[D.2]} Pictures sent by Users are assumed to be in some precise file format.
         
-        \item \textbf{[D.4]} The GPS is assumed to be subject to some precision error.
+         \item \textbf{[D.3]}The  GPS  is  assumed  to  be  subject  to  a  maximum  error  of  20 meters.
+         
+         \item\textbf{[D.7]} Is assumed that the camera used by the User’s device is working properly.
+         \item\textbf{[D.8]} Is assumed that the GPS module used by the User’s device  is working properly.
+       
 \end{itemize}
 
-\item \textbf{{[G.3]} Allows the User to send pictures, type of the violation, license plate and time.}
+\item \textbf{{[G.3]} Allows the User to send pictures, type of the violation, GPS and time.}
 
 \begin{itemize}
-        \item \textbf{[R.13]} The S2B must allow the \textit{User} to only send pictures taken while filling in the notify form, accessing the camera by the \textit{SafeStreets} application, and not to upload some by the gallery.
+
+ \item \textbf{[R.13]} The S2B must allow the \textit{User} to send pictures taken by accessing the camera by the \textit{SafeStreets} application.
+      %  \item \textbf{[R.13]} The S2B must allow the \textit{User} to only send pictures taken while filling in the notify form, accessing the camera by the \textit{SafeStreets} application, and not to upload some by the gallery.
         
         \item \textbf{[R.14]} The S2B must allows the \textit{User} to chose from a predefined list of "type of violation". 
         
-        \item \textbf{[R.15]}The S2B must allow the \textit{User} to only send time automatically taken from the operative system timer.
+        \item \textbf{[R.15]}The S2B sends date and time of the report taking them automatically from the operative system timer.
         
-        \item \textbf{[D.3]} Pictures sent by Users are assumed to be in some precise file format.
+         \item \textbf{[D.2]} Pictures sent by Users are assumed to be in some precise file format.
+        
+         \item\textbf{[D.7]} Is assumed that the camera used by the User’s device is working properly.
+         \item\textbf{[D.8]} Is assumed that the GPS module used by the User’s device  is working properly.
 \end{itemize}
 
 
-\item \textbf{{[G.4]} Must compute license plate, position and address from the received data.}
+\item \textbf{{[G.4]} Must compute the license plate and the address where the violation occurred, from the received data.}
 
     \begin{itemize}
-        
-         \item \textbf{[R.9]}The S2B must allow the \textit{User} to send the report only within 5 minutes from when he/she starts to fill it in. 
+         \item \textbf{[R.9]}The \textit{User} must send the report only within 5 minutes from when he/she starts to fill it in. 
          
         \item \textbf{[R.16]}The S2B must use some out coming map service.
         
-         \item \textbf{[D.3]} Pictures sent by Users are assumed to be in some precise file format.
+        \item \textbf{[D.2]} Pictures sent by Users are assumed to be in some precise file format.
          
-        \item \textbf{[D.4]} The GPS is assumed to be subject to some precision error.
+       \item \textbf{[D.3]} The GPS is assumed to be subject to a maximum error of 20 meters.
     \end{itemize}
     
     
@@ -697,12 +732,13 @@ In this section, it will be showed the functional requirements and the domain as
 
     \begin{itemize}
          \item \textbf{[R.2]} The S2B must provide an already created account to the \textit{Authorities}.
+         
+         \item \textbf{[R.4]} The S2B must allow Authority to log in with his/her given credentials.
+      
         
-        \item \textbf{[R.5]}The S2B must allow \textit{User} to log in with his/her registration credentials.
+        \item \textbf{[R.17]}The S2B must allow only one \textit{Authority} per time to change the status of a report.
         
-        \item \textbf{[R.17]}The S2B must allow only 1 \textit{Authority} per time to change the status of a report.
-        
-        \item \textbf{[R.18]}The S2B must submit to the \textit{Authority} only the reports with a computed trust value higher than 60%.
+        \item \textbf{[R.18]}The S2B must submit to the \textit{Authority} only the reports with a computed trust value higher than 20\%.
         
     \end{itemize}
     
@@ -713,42 +749,51 @@ In this section, it will be showed the functional requirements and the domain as
     
         \item \textbf{[R.2]} The S2B must provide an already created account to the \textit{Authorities}.
         
-         \item \textbf{[R.19]}The S2B must not allow \textit{Authority} to generate more tickets for the same violation
-         
-         \item \textbf{[R.20]}The S2B must allow generated tickets information to be moved into the \textit{Authorities} data store.
+          \item \textbf{[R.4]} The S2B must allow Authority to log in with his/her given credentials.
         
-        \item \textbf{[D.5]} Violations for which a ticket is generated are supposed to be validated by authorities first.
+         \item \textbf{[R.19]}The S2B must not allow \textit{Authority} to generate more tickets for the same violation.
+         
+         \item \textbf{[R.20]}The S2B must be allowed to access the Authority Traffic Ticket Service.
+         
+        \item \textbf{[D.4]} Violations for which a ticket is generated, are supposed to be validated by Authorities before.
         
     \end{itemize}
 
 
 \item \textbf{{[G.7]} Allows both User and Authority to access information about unsafe areas.}
     \begin{itemize}
-         \item \textbf{[R.2]} The S2B must provide an already created account to the \textit{Authorities}.
-
+    
+ \item \textbf{[R.4]} The S2B must allow Authority to log in with his/her given credentials.
+        
+        
         \item \textbf{[R.5]}The S2B must allow \textit{User} to log in with his/her registration credentials.
         
-        \item \textbf{[R.21]}The S2B must update the information about statistics and safe areas with the new validate reports within 10 seconds from the new information delivery.
+        \item \textbf{[R.21]}The S2B must keep its information about safe/unsafe areas up-to-date with all the verified reports it received.
     \end{itemize}
+    
+    \newpage
     
 \item \textbf{{[G.8]} Allows both User and Authority to access statistics about effectiveness of SafeStreets.}
 
     \begin{itemize}
-         \item \textbf{[R.2]} The S2B must provide an already created account to the \textit{Authorities}.
-
+           
+ \item \textbf{[R.4]} The S2B must allow Authority to log in with his/her given credentials.
+        
+        
         \item \textbf{[R.5]}The S2B must allow \textit{User} to log in with his/her registration credentials.
         
-        \item \textbf{[R.21]}The S2B must update the information about statistics and safe areas with the new validate reports within 10 seconds from the new information delivery.
+        \item \textbf{[R.22]}The S2B must keep its information about statistics up-to-date with all the reports it received.
         
     \end{itemize}
     
 \item \textbf{{[G.9]} Allows both User and Authority to access statistics about violations.}
      \begin{itemize}
-         \item \textbf{[R.2]} The S2B must provide an already created account to the \textit{Authorities}.
-
+       \item \textbf{[R.4]} The S2B must allow Authority to log in with his/her given credentials.
+        
+        
         \item \textbf{[R.5]}The S2B must allow \textit{User} to log in with his/her registration credentials.
         
-        \item \textbf{[R.21]}The S2B must update the information about statistics and safe areas with the new validate reports within 10 seconds from the new information delivery.
+        \item \textbf{[R.22]}The S2B must keep its information about statistics up-to-date with all the reports it received.
         
     \end{itemize}
     
@@ -756,53 +801,52 @@ In this section, it will be showed the functional requirements and the domain as
 \item \textbf{{[G.10]} Must cross its data with the municipality ones in order to provide suggestions to improve urban mobility.}
     \begin{itemize}
         
-         \item \textbf{[R.22]}SB2 must have been provided with the access authorization to the municipality data.
+        
+        
          
-         \item \textbf{[R.23]}The S2B must check the physical feasibility of the suggestions provided, with relation to the map.
-         
-         \item \textbf{[R.24]}The S2B must generate suggestions based on the actual information and the actual urban situation.
+         \item \textbf{[R.23]}The S2B must generate suggestions based on the actual information and the actual urban situation.
        
-         \item \textbf{[D.6]} Information obtained by authorities are    supposed to be correct.
+       \item \textbf{[D.5]} Information obtained by Municipality are supposed to be correct.
+    \item \textbf{[D.6]} Is assumed that there's no bounds which suggestions provided by the S2B have to respect.
          
-         \item \textbf{[D.7]} Is assumed that there's no bounds which suggestions provided by the S2B have to respect.
+          \item \textbf{[D.9]} Is assumed that the municipality offers an API to access their urban mobility data.
           
     \end{itemize}
     
 \item \textbf{{[G.11]} Must ensure that corrupted information are discarded.}
     \begin{itemize}
-        \item \textbf{[R.25]}The S2B must use an algorithm to recognize picture that have been physically or digitally modified.
+        \item \textbf{[R.24]}The S2B must use an algorithm to recognize picture that have been physically or digitally modified.
         
-        \item \textbf{[R.26]}The S2B must compare received data with the ones computed with algorithms in order to find discrepancies.
+        \item \textbf{[R.25]}The S2B must compare received data with the ones computed with algorithms in order to find discrepancies.
         
-        \item \textbf{[R.27]}The S2B must not submit to \textit{Authorities} the reports that have been valuated with a low trust level.
+        \item \textbf{[R.26]}The S2B must not submit to \textit{Authorities} the reports that have been valuated with a low trust level.
     \end{itemize}
 \end{itemize}
 
 
 \subsection{Performance Requirements}
-This section contains some numerical requirements of the system, relative to the interaction with \textit{Users} and to the performances.
-When a \textit{User} send a report, this must be taken in account (accepted or rejected) within one month by the competent authorities, and than another month to eventually generate a ticket. Due to DBMS storage issues, it's not possible to permanently store all the reports that does not lead to a "conclusion".\\
-When a report is accepted by authorities, its existence must be take into account by the statistics functionalities in less than 30 seconds, in order to offer information and statistics always up to the most recent date.\\
+This section contains some numerical requirements of the system, relative to the interaction between \textit{Users} and \textit{System} and to the performances.
+When a \textit{User} send a report, this must be taken into account (accepted or rejected) within one month by the competent authorities.\\
+When a report is accepted by authorities, its existence must be taken into account by the statistics functionalities, in order to offer information and statistics always up to the most recent date.\\
 A suggestion must be provided by \textit{SafeStreets} within the time span in which this suggestion can be useful and significant. \\
-A report by a \textit{User} must be sended to \textit{SafeStreets} within 5 minutes from when the report has been created and the \textit{User} started to fill it. This comes with the intention of not allow \textit{User} to send wrong position by moving away from the violation location while compiling the form, or to send wrong time information.
+A report by a \textit{User} must be sent to \textit{SafeStreets} within 5 minutes from when the report has been created and the \textit{User} started to fill it. This comes with the intention of not allow \textit{User} to send wrong position by moving away from the violation location while compiling the form, or to send wrong time or wrong vehicles information.
 \subsection{Design
 Constraints}
 
 \subsubsection{Standards compliance}
-The system doesnt need to be directly compliant to any particular standard, it only needs to consider the position acquired from the User as \textit{Latitude} and \textit{Longitude}. In the design analysis it will be decided if it is necessary to add any further compliance.
+The system doesn't need to be directly compliant to any particular standard, it only needs to consider the position acquired from the User as \textit{Latitude} and \textit{Longitude}. In the design analysis it will be decided if it is necessary to add any further compliance.
 \subsubsection{Hardware limitations}
-\textit{SafeStreets} is a software application, the device with \textit{SafeStreets} installed must guarantee access to internet, a camera with at least 8 Megapixel and flash in order to take photos during night. 
-\subsubsection{Any other constraint}
-Each User must upload a photo of his/her ID document in order to have their account verified.
+\textit{SafeStreets} is a software application, the device where \textit{SafeStreets} is installed must guarantee access to internet, a camera with at least 8 Megapixel and flash in order to take pictures during night time. 
+
 \subsection{Software System Attributes}
 
 \subsubsection{Reliability}
-\textit{SafeStreets} should be available 24/7 in order to allow Users to report traffic violations at any given time. However it can be accepted to have periods of 2-4 hours in which the server is down because of maintenance, this doesn't represent a problem since the mobile application can use a local Database and store the reports being sent by the User when it is down.
+\textit{SafeStreets} should be available 24/7 in order to allow Users to report traffic violations at any given time. However it can be accepted to have periods of 2-4 hours in which the server is down because of maintenance, this doesn't represent a problem since the mobile application can use a local storage to keep the reports made by the User when he/she is not able to connect to \textit{SafeStreets}.
 \subsubsection{Availability}
 Since \textit{SafeStreets} does not have a critical nature, 90\% of availability is sufficient.
 \subsubsection{Security}
 In order to guarantee a secure system, \textit{SafeStreets} uses HTTPS for a secure communication between Users and the Server, HTTPS allows to avoid possible Man in the Middle attacks. However any other protocol or encryption algorithm will be discussed in the Design Document.
 \subsubsection{Maintainability}
-The System will follow good software engineering practices to allow maintainability, for example it is possible to use a local Database in order to allow the maintenance of the global database server. However, this will be discussed in the Design Document.
+The System will follow good software engineering practices to allow maintainability, for example it is possible to use a local storage in order to allow the maintenance of the global database server. However, this will be discussed in the Design Document.
 \subsubsection{Portability}
-\textit{SafeStreets} is developed as a Web Application, it is sufficient to have a mobile phone that allows the use of web browsers. Thus, \textit{SafeStreets} has a maximum grade of portability.
+\textit{SafeStreets} is developed as a Web Application, it is sufficient to have a mobile device that allows the use of an internet connection, a camera and a GPS. Thus, \textit{SafeStreets} has a maximum grade of portability.
