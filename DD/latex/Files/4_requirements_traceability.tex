@@ -1,1 +1,139 @@
 \section{Requirement Traceability}
+
+\begin{table}[H]
+\advance\leftskip-1.5cm
+\begin{tabular}{|l|p{0.8\textwidth}|}
+\hline
+\textbf{\textbf{Component (DD)}}             &    \textbf{Requirements (RASD)}                                                           \\ \hline
+
+\textbf{Authentication Manager}    & \begin{itemize}
+    \item \textbf{[R.1]}A Guest must be able to register and \newline become a User.
+    
+    \item \textbf{[R.2]}The S2B must provide an already created account to the Authorities.
+
+    \item \textbf{[R.3]}The S2B must check that credentials \newline are correct, then send a confirmation e-mail.
+    \item \textbf{[R.4]}The S2B must allow Authority to log \newline in with his/her given credentials.
+    \item \textbf{[R.5]}The S2B must allow User to log in with \newline his/her registration credentials.
+\end{itemize}  \\ \hline
+
+
+%\textbf{Authority Manager}     &  \\ \hline
+
+
+%\textbf{User Manager}       &   \\ \hline
+
+
+
+
+\textbf{Report Manager (Server)}     &   \begin{itemize}
+    \item \textbf{[R.6]}The S2B must provide an algorithm \newline for compute the trustness of reports.
+    \item \textbf{[R.7]}User can see the list of his/her reports.
+    \item \textbf{[R.8]}User can edit or cancel his/her reports.
+    \item \textbf{[R.10]}The S2B must submit the received \newline reports to an Authority for checking its validity.
+    \item \textbf{[R.11]}The S2B must recognize if a report \newline that is about to be made, may involve a  \newline violation already notified,  and alert the User.
+    \item \textbf{[R.12]}The S2B must alert the Authorities \newline if more done reports refer to the same violation
+    \item \textbf{[R.17]}The S2B must allow only one Authority \newline  per time to change the status of a report.
+    \item\textbf{[R.18]}The S2B must submit to the Authority \newline only the reports with a computed trust value \newline higher than 20\%.
+    \item \textbf{[R.26]}The S2B must not submit to Authorities the reports that have been valuated with a low trust level.
+\end{itemize}\\ \hline
+
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\advance\leftskip-1.5cm
+\begin{tabular}{|l|p{0.8\textwidth}|}
+\hline
+\textbf{\textbf{Component (DD)}}             &    \textbf{Requirements (RASD)}                                                           \\ \hline
+
+\textbf{Ticket Manager}   &  \begin{itemize}
+    \item \textbf{[R.19]}The S2B must not allow Authority \newline to generate more tickets for the same violation.
+    
+    \item \textbf{[R.20]}The S2B must be allowed to access the Authority Traffic Ticket Service.
+\end{itemize}  \\ \hline
+
+
+\textbf{Report Manager (Client)}   & \begin{itemize}
+    \item \textbf{[R.9]}The User must send the report only within 5 minutes from when he/she starts to fill it in.
+    \item \textbf{ [R.11]}The S2B must recognize if a report that is about to be made, may involve a violation already notified, and alert the User.
+    \item \textbf{[R.13]} The S2B must allow the User to send pictures taken by accessing the camera by the SafeStreets application.
+    \item \textbf{[R.14]}The S2B must allows the User to chose from a predefined list of "type of
+    violation".
+    \item \textbf{[R.15]}The S2B sends date and time of the report taking them automatically from the operative system timer.
+    
+    \item \textbf{[R.25]}The S2B must compare received data with the ones computed with algorithms in order to find discrepancies.
+    
+\end{itemize}    \\ \hline
+
+
+%\textbf{Security Manager}    &   \\\hline
+
+
+\textbf{Data Manager}    &  \begin{itemize}
+    \item \textbf{[R.21]}The S2B must keep its information about safe/unsafe areas up-to-date with all the verified reports it received.
+    
+    \item \textbf{[R.22]}The S2B must keep its information about statistics up-to-date with all the reports it received.
+    
+    \item \textbf{[R.23]}The S2B must generate suggestions based on the actual information and the actual urban situation.
+    
+\end{itemize} \\\hline
+
+
+\textbf{Suggestions Manager}    &  \begin{itemize}
+    \item \textbf{[R.23]}The S2B must generate suggestions based on the actual information and the actual urban situation.
+\end{itemize} \\\hline
+
+
+
+
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\advance\leftskip-1.5cm
+\begin{tabular}{|l|p{0.8\textwidth}|}
+\hline
+\textbf{\textbf{Component (DD)}}             &    \textbf{Requirements (RASD)}                                                           \\ \hline
+
+\textbf{Statistics Manager}    &  \begin{itemize}
+    \item \textbf{[R.21]}The S2B must keep its information about statistics up-to-date with all the reports it received.
+\end{itemize} \\\hline
+
+\textbf{Urban Safeness Manager}    & \begin{itemize}
+    \item  \textbf{[R.20]}The S2B must keep its information about safe/unsafe areas up-to-date with all the verified reports it received.
+\end{itemize}  \\\hline
+
+
+%\textbf{Municipality System}    &   \\\hline
+
+
+\textbf{Mailing Service}    & \begin{itemize}
+    \item \textbf{[R.3]}The S2B must check that credentials are correct, then send a confirmation e-mail.   
+\end{itemize}
+\\\hline
+
+
+\textbf{License Plate Rec API}    & \begin{itemize}
+    \item  \textbf{[R.18]}The S2B must submit to the Authority only the reports with a computed trust value higher than 20\%.
+\end{itemize}  \\\hline
+
+
+\textbf{Corrupted Image Rec API}    &   \begin{itemize}
+     \item\textbf{[R.18]}The S2B must submit to the Authority only the reports with a computed trust value higher than 20\%. 
+     
+     \item \textbf{[R.23]}The S2B must use an algorithm to recognize picture that have been physically or digitally modified.
+\end{itemize}
+\\\hline
+
+
+\textbf{Map Service}    &   \begin{itemize}
+    \item \textbf{[R.16]}The S2B must use some out coming map service.
+\end{itemize}\\\hline
+
+
+%\textbf{Authority Ticket Service}    &   \\\hline
+
+
+\end{tabular}
+\end{table}
