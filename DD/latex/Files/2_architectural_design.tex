@@ -826,4 +826,7 @@ Between the Reverse Proxy of the Application Server and the Internet, there is a
 
 \noindent \textbf{Observer}\newline
 An Observer Pattern has been implemented between the Data Manager and the Data Store Manager. Data Manager observes every new data that is added to the to Database. Then it notifies to Suggestion, Statistics and Urban Safeness Manager, depending on which of those is interested in the new data for their aims, pushing data to them.\\
-This mechanism is used to make the Suggestions, Statistics and Urban Safeness Manager aware of each new data, so they can keep their information up to date.
+This mechanism is used to make the Suggestions, Statistics and Urban Safeness Manager aware of each new data, so they can keep their information up to date.\newline
+
+\noindent \textbf{Replication for Availability}
+As mentioned in the RASD document, SafeStreets has to keep an availability of at least 90\%, and to get this, the application server is replicated at least two times, to ensure that in case the main one stops working, it could be temporarily replaced. This mechanism will also help to improve the load balancing and the reliability of the system.
