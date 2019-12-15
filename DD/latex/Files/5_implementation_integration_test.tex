@@ -72,17 +72,47 @@ Once all the components inside the application server have been implemented, int
         \caption{Integration of the Back-end Subsystem}
     \end{figure}
 \vspace{2mm}
+\noindent\textbf{Integration of Back-end components with external components}\newline
+In the following diagrams, it will be shown how internal components of our system will be integrated with external components that each component use (taking into account the \textit{bottom-up} approach). For simplicity the diagrams show only the components using the external \textit{Services or API} and not the relation between internal components in our system.\newline
+\begin{figure}[H]
+             \centering
+          \includegraphics[width=0.8\textwidth]{Images/authentication_mailinig.png}
+        \caption{Integration of Mailing Service}
+    \end{figure}
+\begin{figure}[H]
+             \centering
+          \includegraphics[width=0.8\textwidth]{Images/report_apis.png}
+        \caption{Integration of License Plate Recognition API and Corrupted Image Recognition API}
+\end{figure}
+\begin{figure}[H]
+             \centering
+          \includegraphics[width=0.8\textwidth]{Images/ticket_auth_service.png}
+        \caption{Integration of Authority Ticket Service}
+\end{figure}
+\begin{figure}[H]
+             \centering
+          \includegraphics[width=0.8\textwidth]{Images/suggestions_muni.png}
+        \caption{Integration of Municipality System}
+\end{figure}
+\begin{figure}[H]
+             \centering
+          \includegraphics[width=0.8\textwidth]{Images/suggestions_urban_map.png}
+        \caption{Integration of Map Service}
+\end{figure}
+\newpage
 \noindent\textbf{Integration of components inside the Front-end Subsystem}\newline
-Since the Front-end subsystem contains only the Encryption Manager, Network Manager, Report Manager and Presentation components, and three of the four components were already present in the back-end subsystem (for Report Manager different logic but same purpose), their integration and test process will be the same with the only difference that the Presentation component will be the last component to be integrated and tested. In the following diagrams, the front-end subsystem will be represented as the \noindent\textit{Client Application} component.\newline \\
+Since the Front-end subsystem contains only the Encryption Manager, Network Manager, Report Manager and Presentation components, and three of them were already present in the back-end subsystem (for Report Manager different logic but same purpose), Their integration and test process will be the same with the only difference that the Presentation component will be the last component to be integrated and tested. In the following diagrams, the front-end subsystem will be represented as the \noindent\textit{Client Application} component.\newline \\
 The following two diagrams represents how the integration between the client application and the application server is performed. First the client application is integrated and tested with the basic functionalities (Traffic Ticket Services), and then with the additional functionalities (Supplementary Services). At the end of each integration, an integration test is performed.
 \begin{figure}[H]
              \centering
-          \includegraphics[width=0.8\textwidth]{Images/client_tt_services.png}
+          \includegraphics[width=0.9\textwidth]{Images/client_tt_services.png}
         \caption{Client Application with Traffic Ticket Services}
         
     \end{figure}
          \begin{figure}[H]
              \centering
-          \includegraphics[width=0.8\textwidth]{Images/client_supp_services.png}
+          \includegraphics[width=0.9\textwidth]{Images/client_supp_services.png}
         \caption{Client Application with Supplementary Services}
     \end{figure}
+    
+    
