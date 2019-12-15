@@ -1,0 +1,78 @@
+\section{Introduction}
+
+\subsection{Purpose}
+This document provide an overview of \textit{SafeStreets} application, explaining how to satisfy the project requirements stated in the RASD.\\
+It's mainly intended for developers and testers and they can find a functional description of the components of the System, their interactions and their interfaces, and also how they will be implemented.
+
+Finally, all the requirements expressed in the RASD will be dealt with what is expose in this one, describing how the components presented can satisfy them.
+
+\subsection{Scope}
+As explained in the RASD, \textit{SafeStreets} is an application that was created with the intention of monitoring the compliance with traffic regulations.\\
+Its main goal is to allow Users to notify traffic violations.\\
+Then the application must collect the reports sent by the Users and allows Authorities to verify if each violation is sanctionable and, if it is, provide them the possibility of generate Traffic Ticket.
+
+Moreover, by crossing its collected data with the Municipalities ones, is also possible to provide to Users and Authorities statistics about the effectiveness of \textit{SafeSteets} and suggestions about how to avoid recurrent accidents.
+
+The application provides Users a way to send data about a violation (most common are parking violations ones, e.g. vehicles parked in reserved places), like the kind of violation, pictures of the involved vehicles, and the date and the position in which the violation occurred. The User can also specify the license plate of the vehicle and the name of the street, but in case he/she doesn't, the application is equipped with algorithms capable to obtain those and other metadata by pictures and position.
+
+\subsection{Definitions, Acronyms, Abbreviations}
+    \subsubsection{Definitions}
+        \begin{itemize}
+            \item \textbf{Guest}: a person who has not logged in or registered yet and cannot use the functionalities of the System.
+            \item \textbf{User}: a person that uses the application to send notifications of traffic violations.
+            \item \textbf{Authority}: a municipality worker that is able to create traffic tickets depending on the violation that a person has committed.
+        \end{itemize}
+        
+    \subsubsection{Acronyms}
+    \begin{itemize}
+        \item DD: Design Document
+        \item RASD: Requirement Analysis and Specification Document
+        \item DBMS: Data Base Management System
+        \item UI: User Interface
+        \item API: Application User Interface
+        \item OS: Operating System
+        \item REST: REpresentational State Transfer
+        \item HTTP: HyperText Transfer Protocol 
+        \item UX: User eXperience
+    \end{itemize}
+    \subsubsection{Abbreviations}
+        \begin{itemize}
+            \item {[\textbf{R.i}]}: i-th functional requirement.
+        \end{itemize}
+
+\subsection{Revision history}
+
+
+
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c| } 
+\hline
+ Version & Date & Authors & Summary \\ 
+\hline
+\multirow{3}{*}{1.0} & \multirow{3}{*}{10/11/2019} & Iacopo Marri & \multirow{3}{*}{First release} \\ 
+&  & Manuel Salamino & \\ 
+&  & Steven Alexander Salazar Molin & \\ 
+\hline
+\multirow{5}{*}{1.0} & \multirow{5}{*}{10/11/2019} &  & \\ 
+&  & Iacopo Marri  &  Changed section 2.7\\
+&  & Manuel Salamino &  Changed section 5.2.1 \\ 
+&  & Steven Alexander Salazar Molina &\\ 
+&  & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Reference Documents}
+    \begin{itemize}
+        \item RASD document
+        \item Project assignment specifications
+    \end{itemize}
+
+\subsection{Document
+Structure}
+
+\textbf{Architectural Design:} shows the main components of the System and their relationships. This section also focuses on design choices and architectural styles, patterns and paradigms.\\\\
+\textbf{User Interface Design:} following what has already been included in the RASD, this section defines the UX by means of view flow modeling.\\\\
+\textbf{Requirements Traceability:} shows how the requirements in the RASD are satisfied by the design choices of the DD.\\\\
+\textbf{Implementation, Integration and Test plan:} explain the order in which the implementation and integration of components will occur and how the integration will be tested.\\
